@@ -1,6 +1,6 @@
 <div class="col-md-12">
 	Usuarios del sitio  || {{ $usuarios->total() }}
-	<form  class="navbar-form" method="GET" action="{{ url('/administracion') }}">
+	<form  class="navbar-form" method="GET" action="{{ url('/useradm') }}">
 		{{ csrf_field() }}
 		<div class="input-group">
 			<div class="form-group">

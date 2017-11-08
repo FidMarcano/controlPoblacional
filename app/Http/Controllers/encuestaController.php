@@ -77,6 +77,11 @@ class encuestaController extends Controller
     public function store(Request $request)
     {   
         Encuesta::guardar($request->idMateria, $request->bloque, $request->motivo);   
+            
+        if ($request->bloque == 0 || $request->motivo == 0) {
+            # code...
+        }
+
         $materia1 = DB::table('encuestas')->where([
                 ['id_user',Auth::user()->id],
                 ['id_motivo',0],

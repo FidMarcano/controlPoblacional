@@ -10,6 +10,8 @@
                         Home
                     @elseif($n == 2 || $n == 3 || $n == 4)
                         Estudio de la población
+                    @elseif($n == 10)
+                        Estadísticas del estudio
                     @endif
                 </div>
 
@@ -33,7 +35,11 @@
                     @elseif($n == 7)
                         @include('administracion.administracionInicio')
                     @elseif($n == 8)
-                        @include('administracion.administracionUsuarios')        
+                        @include('administracion.administracionUsuarios')
+                    @elseif($n == 9)
+                        @include('administracion.administracionResultados')  
+                    @elseif($n == 10)
+                        @include('administracion.administracionEstadistica')        
                     @endif
                 </div>
             </div>

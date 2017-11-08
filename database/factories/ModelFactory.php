@@ -20,14 +20,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
        	'apellido' => $faker->lastname,
        	'id_ciudad' =>  $faker->numberBetween($min = 1, $max = 9),
        	'estatus' => $faker->numberBetween($min = 0, $max = 1),
-       	'nivel' => $faker->numberBetween($min = 1, $max = 2),
+       	'nivel' => 1,
        	'uc_aprobadas' => $faker->numberBetween($min = 0, $max = 150),
        	'cedula'=>$faker->unique()->numberBetween($min = 1, $max = 100),
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = bcrypt('123123123'),
         'remember_token' => str_random(10),
     ];
 });
+//secret
 
 
 

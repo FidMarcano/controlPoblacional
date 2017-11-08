@@ -25,5 +25,6 @@ Route::get('/administrar', 'opcionesController@administracion')->middleware('aut
 
 
 Route::resource('/encuestas', 'encuestaController');
+Route::resource('/useradm', 'userAdminController');
 Route::resource('/administracion', 'adminController');
 

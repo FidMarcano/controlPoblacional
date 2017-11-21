@@ -40,6 +40,8 @@ class User extends Authenticatable
     }
 
 
+
+
     //Sistemas de búsqueda--------------------------------------------------------------------------------------------------
 
     public function scopeNombre($query, $name)

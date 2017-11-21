@@ -16,7 +16,6 @@
 
 				<select class="form-control" name="rol">
 				  <option>Rol</option>
-				  <option value="0">No asignado</option>
 				  <option value="1">Estudiante</option>
 				  <option value="2">Profesor</option>
 				</select>

@@ -16,7 +16,13 @@
 			<td>{{ $u->nombre }} {{ $u->apellido }}</td>
 			<td>{{ $u->cedula }}</td>
 			<td>{{ $u->email }}</td>
-			<td>{{ $u->nivel }}</td>
+
+			@if($u->nivel == 1)
+				<td>Usuario</td>
+			@else
+				<td>Administrador</td>
+			@endif
+			
 			@if($u->rol == 0)
 				<td>No asignado</td>
 			@elseif($u->rol == 1)
@@ -43,7 +49,10 @@
 			@endforeach
 			<td>
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detalles{{ $u->id }}">Detalles</button>
-				<button class="btn btn-info">Editar</button>
+				<form method="get" action="{{ url('/useradm/'.$u->id.'/edit') }}">
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-info">Editar</button>
+				</form>
 			</td>
 		</tr>
 

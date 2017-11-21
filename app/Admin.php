@@ -38,4 +38,16 @@ class Admin extends Model
 
         return $noP;
     }
+
+
+    //Editar usuario desde el admin----------------------------------------------------------------------------------------
+
+    static function EditarUsuario($id, $rol, $nivel)
+    {   
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['rol' => $rol,'nivel' => $nivel]);
+
+    }
+
 }

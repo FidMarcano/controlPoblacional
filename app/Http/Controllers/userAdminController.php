@@ -83,7 +83,15 @@ class userAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = DB::table('users')->where('id', $id)->first();
+        $ciudades = DB::table('ciudades')->get();
+        $aprobados = DB::table('aprobados')->get();
+        $materias = DB::table('materias')->get();
+        $bloques = DB::table('bloques')->get();
+
+         return view::make('home')->with(['n'=> 11, 'usuario'=>$usuario, 'ciudades'=>$ciudades, 'aprobados'=>$aprobados,'materias'=>$materias, 'bloques'=>$bloques]);
+
+
     }
 
     /**
@@ -95,7 +103,27 @@ class userAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Admin::EditarUsuario($id, $request->rol, $request->nivel);
+
+        $usuarios = DB::table('users')->orderBy('id', 'DESC')->paginate(10);
+        $ciudades = DB::table('ciudades')->get();
+        $aprobados = DB::table('aprobados')->get();
+        $materias = DB::table('materias')->get();
+        $encuestas = DB::table('encuestas')->get();
+        $motivos = DB::table('motivos')->get();
+        $bloques = DB::table('bloques')->get();
+        $nuevos = Admin::Nuevos($usuarios);
+        $noP = Admin::NoParticipantes($usuarios);
+
+
+        $users = User::Nombre($request->get('nombre'))->Cedula($request->get('cedula'))->Correo($request->get('correo'))->Ciudad($request->get('ciudad'))->Nivel($request->get('nivel'))->Rol($request->get('rol'))->Residenciado($request->get('residenciado'))->Participacion($request->get('estatus'))->orderBy('id', 'DESC')->paginate(10);
+
+        if (empty($encuestas)) {
+           return view::make('home')->with(['n'=> 8, 'usuarios'=>$usuarios, 'ciudades'=>$ciudades, 'aprobados'=>$aprobados,'materias'=>$materias, 'nuevos'=>$nuevos, 'encuestas' => 0, 'motivos' => $motivos, 'noP' => $noP, 'bloques'=>$bloques]);
+        }else{
+            return view::make('home')->with(['n'=> 8, 'usuarios'=>$users, 'ciudades'=>$ciudades, 'aprobados'=>$aprobados,'materias'=>$materias, 'nuevos'=>$nuevos, 'encuestas' => $encuestas, 'motivos' => $motivos, 'noP' => $noP, 'bloques'=>$bloques]);
+
+        }
     }
 
     /**

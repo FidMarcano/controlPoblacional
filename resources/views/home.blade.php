@@ -39,7 +39,9 @@
                     @elseif($n == 9)
                         @include('administracion.administracionResultados')  
                     @elseif($n == 10)
-                        @include('administracion.administracionEstadistica')        
+                        @include('administracion.administracionEstadistica')
+                    @elseif($n == 11)
+                        @include('formularios.editarUsuario')        
                     @endif
                 </div>
             </div>

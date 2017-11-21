@@ -1,6 +1,15 @@
 <table class="table">
 	<tr><td><b>Usuario</b></td> <td>{!! Auth::user()->nombre !!} {!! Auth::user()->apellido !!}</td></tr>
 	<tr><td><b>Uc aprobadas</b></td> <td>{!! Auth::user()->uc_aprobadas !!}</td></tr>
+	<tr><td><b>Nivel del usuario</b></td> <td>
+		@if(Auth::user()->rol == 1)
+			Estudiante
+		@elseif(Auth::user()->rol == 2)
+			Profesor
+		@else
+			No asignado
+		@endif
+	</td></tr>
 	<tr><td><b>Fecha</b></td> <td>{!! $fecha !!}</td></tr>
 </table>
 

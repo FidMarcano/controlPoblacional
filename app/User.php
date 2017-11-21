@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre','apellido','email','id_ciudad','password',
+        'nombre','apellido','email','trabaja','cedula','residencia','id_ciudad','password',
     ];
 
     /**
@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'estatus', 'nivel'
+        'password', 'remember_token', 'estatus','rol','uc_aprobadas', 'nivel'
     ];
 
 
@@ -98,6 +98,28 @@ class User extends Authenticatable
         if ($estatus != "" && isset($stati[$estatus])) 
         {
             $query->where('estatus', $estatus);   
+        }
+        
+    }
+
+    public function scopeRol($query, $rol)
+    {
+        $roles = ['0','1','2'];
+
+        if ($rol != "" && isset($roles[$rol])) 
+        {
+            $query->where('rol', $rol);   
+        }
+        
+    }
+
+    public function scopeResidenciado($query, $residenciado)
+    {
+        $res = ['0','1'];
+
+        if ($residenciado != "" && isset($res[$residenciado])) 
+        {
+            $query->where('residencia', $residenciado);   
         }
         
     }

@@ -39,6 +39,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
+                            <label for="cedula" class="col-md-4 control-label">Cédula</label>
+
+                            <div class="col-md-6">
+                                <input id="cedula" type="number" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
+
+                                @if ($errors->has('cedula'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cedula') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Correo electrónico</label>
 
@@ -65,6 +79,35 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('residencia') ? ' has-error' : '' }}">
+                            <label for="residencia" class="col-md-4 control-label">Se encuentra residenciado</label>
+
+                            <div class="col-md-6">
+                                <input id="residencia" type="radio" name="residencia" value="1" checked="true" required autofocus>Si
+                                <input id="residencia" type="radio" name="residencia" value="0" required autofocus>No   
+                                @if ($errors->has('residencia'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('residencia') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('trabaja') ? ' has-error' : '' }}">
+                            <label for="trabaja" class="col-md-4 control-label">Trabaja</label>
+
+                            <div class="col-md-6">
+                                <input id="trabaja" type="radio" name="trabaja" value="1" checked="true" required autofocus>Si
+                                <input id="trabaja" type="radio" name="trabaja" value="0" required autofocus>No   
+                                @if ($errors->has('trabaja'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('trabaja') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Contraseña</label>

@@ -21,6 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('estatus')->default('0');
+            $table->boolean('residencia')->default('0');
+            $table->boolean('trabajo')->default('0');
+            $table->smallInteger('rol')->default('0');
             $table->smallInteger('nivel')->default('1');
             $table->smallInteger('id_ciudad');
             $table->integer('uc_aprobadas')->default('0');

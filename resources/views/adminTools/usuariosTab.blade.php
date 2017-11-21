@@ -4,6 +4,8 @@
 		<th>Cédula</th>
 		<th>Correo electrónico</th>
 		<th>Nivel</th>
+		<th>Rol</th>
+		<th>Residencia</th>
 		<th>Participación</th>
 		<th>Ciudad</th>
 		<th>Opciones</th>
@@ -15,6 +17,19 @@
 			<td>{{ $u->cedula }}</td>
 			<td>{{ $u->email }}</td>
 			<td>{{ $u->nivel }}</td>
+			@if($u->rol == 0)
+				<td>No asignado</td>
+			@elseif($u->rol == 1)
+				<td>Estudiante</td>
+			@else
+				<td>Profesor</td>
+			@endif
+			@if($u->residencia == 0)
+				<td>No residenciado</td>
+			@else
+				<td>Residenciado</td>
+			@endif
+
 			@if( $u->estatus == 0)
 				<td>No</td>
 			@else
@@ -35,4 +50,6 @@
 		@include('modals.userModals')
 	@endforeach
 </table>
-{{ $usuarios->links() }}
+
+<!-- Se colocan los nombres de los Scope -->
+{{ $usuarios->appends(Request::only(['nombre', 'cedula', 'correo', 'nivel', 'rol', 'residenciado', 'estatus', 'ciudad']))->links() }} 

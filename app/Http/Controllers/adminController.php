@@ -16,7 +16,7 @@ class adminController extends Controller
 {
     public function index(Request $request)
     {
-        $usuarios = DB::table('users')->paginate(10);
+        $usuarios = DB::table('users')->orderBy('id', 'DESC')->paginate(10);
         $ciudades = DB::table('ciudades')->get();
         $aprobados = DB::table('aprobados')->get();
         $materias = DB::table('materias')->get();

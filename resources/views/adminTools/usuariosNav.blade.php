@@ -14,8 +14,21 @@
 				  <option value="1">Usuario normal</option>
 				</select>
 
+				<select class="form-control" name="rol">
+				  <option>Rol</option>
+				  <option value="0">No asignado</option>
+				  <option value="1">Estudiante</option>
+				  <option value="2">Profesor</option>
+				</select>
+
+				<select class="form-control" name="residenciado">
+				  <option>Residenciado</option>
+				  <option value="0">No residenciado</option>
+				  <option value="1">Residenciado</option>
+				</select>
+
 				<select class="form-control" name="estatus">
-				  <option>Participó en el proceso</option>
+				  <option>Participación</option>
 				  <option value="1">Si</option>
 				  <option value="0">No</option>
 				</select>

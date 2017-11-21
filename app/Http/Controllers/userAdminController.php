@@ -22,7 +22,7 @@ class userAdminController extends Controller
      */
     public function index(Request $request)
     {
-        $usuarios = DB::table('users')->paginate(10);
+        $usuarios = DB::table('users')->orderBy('id', 'DESC')->paginate(10);
         $ciudades = DB::table('ciudades')->get();
         $aprobados = DB::table('aprobados')->get();
         $materias = DB::table('materias')->get();
@@ -33,7 +33,7 @@ class userAdminController extends Controller
         $noP = Admin::NoParticipantes($usuarios);
 
 
-        $users = User::Nombre($request->get('nombre'))->Cedula($request->get('cedula'))->Correo($request->get('correo'))->Ciudad($request->get('ciudad'))->Nivel($request->get('nivel'))->Participacion($request->get('estatus'))->orderBy('id', 'DESC')->paginate(10);
+        $users = User::Nombre($request->get('nombre'))->Cedula($request->get('cedula'))->Correo($request->get('correo'))->Ciudad($request->get('ciudad'))->Nivel($request->get('nivel'))->Rol($request->get('rol'))->Residenciado($request->get('residenciado'))->Participacion($request->get('estatus'))->orderBy('id', 'DESC')->paginate(10);
 
         if (empty($encuestas)) {
            return view::make('home')->with(['n'=> 8, 'usuarios'=>$usuarios, 'ciudades'=>$ciudades, 'aprobados'=>$aprobados,'materias'=>$materias, 'nuevos'=>$nuevos, 'encuestas' => 0, 'motivos' => $motivos, 'noP' => $noP, 'bloques'=>$bloques]);
